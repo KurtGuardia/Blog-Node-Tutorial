@@ -3,13 +3,12 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogsRoutes = require('./routes/blogRoutes');
+const dbURI = require('./config');
 
 // express app
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI =
-  'mongodb+srv://test:Test123@netninjatutotial.xkdfa.mongodb.net/ninja-tut?retryWrites=true&w=majority';
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((res) => app.listen(3000))
